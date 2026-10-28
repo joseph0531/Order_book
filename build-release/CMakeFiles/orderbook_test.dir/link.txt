@@ -1,0 +1,1 @@
+/usr/bin/c++ -O3 -DNDEBUG -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/orderbook_test.dir/tests/OrderBookTest.cpp.o CMakeFiles/orderbook_test.dir/src/OrderBook.cpp.o -o orderbook_test
