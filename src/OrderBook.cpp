@@ -231,5 +231,38 @@ Order* OrderBook::getBestSellOrder() {
     Order& earlylist_price = price_queue.front();
 
     return &earlylist_price;
+}
+
+
+void OrderBook::removeBestBuyOrder() {
+    map<int, PriceLevel, greater<int>>::iterator buy_high_price = buyLevels_.begin();
+
+    PriceLevel& price_queue = buy_high_price->second;
+
+    Order& earlylist_price = price_queue.front();
+
+    orderids_.erase(earlylist_price.id);
+
+    price_queue.pop_front();
+
+    if (price_queue.empty()) {
+        buyLevels_.erase(buy_high_price);
+    }
+}
+
+void OrderBook::removeBestSellOrder() {
+    map<int, PriceLevel>::iterator sell_low_price = sellLevels_.begin();
+
+    PriceLevel& price_queue = sell_low_price->second;
+
+    Order& earlylist_price = price_queue.front();
+
+    orderids_.erase(earlylist_price.id);
+
+    price_queue.pop_front();
+
+    if (price_queue.empty()) {
+        sellLevels_.erase(sell_low_price);
+    }
 
 }

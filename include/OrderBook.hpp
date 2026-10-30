@@ -24,6 +24,8 @@ public:
 
     bool canMatch(const Order& buy, const Order& sell) const;
 
+
+
 //只有內部可以使用操作的資料
 private:
 
@@ -49,4 +51,8 @@ private:
 
     Order* getBestBuyOrder();
     Order* getBestSellOrder();
+
+    void removeBestBuyOrder();
+    void removeBestSellOrder();
+
 };
