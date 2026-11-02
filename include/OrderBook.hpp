@@ -18,9 +18,9 @@ public:
 
     bool cancelOrder(std::string side, int id);
 
-    void printOrder() const;
-
     size_t orderCount() const;
+
+    void printOrder() const;
 
     bool canMatch(const Order& buy, const Order& sell) const;
 
@@ -29,12 +29,8 @@ public:
 //只有內部可以使用操作的資料
 private:
 
-    std::vector<Order> buyOrders_;
-    std::vector<Order> sellOrders_;
     std::unordered_set<int> orderids_;
 
-    int findBestBuyIndex() const;
-    int findBestSellIndex() const;
 
     Trade executeTrade(Order& buy, Order& sell, int tradePrice);
 
@@ -55,4 +51,6 @@ private:
     void removeBestBuyOrder();
     void removeBestSellOrder();
 
+    void processBuyOrder(Order& buy, std::vector<Trade>& trade);
+    void processSellOrder(Order& sell, std::vector<Trade>& trade);
 };
