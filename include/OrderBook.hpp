@@ -4,10 +4,10 @@
 #include "Order.hpp"
 #include "Trade.hpp"
 #include <cstddef>
-#include <unordered_set>
 #include <map>
 #include <deque>
 #include <functional>
+#include <unordered_map>
 
 
 class OrderBook {
@@ -16,21 +16,28 @@ public:
 
     std::vector<Trade> addOrder(const Order& order);
 
-    bool cancelOrder(std::string side, int id);
+    bool cancelOrder(int id);
 
     size_t orderCount() const;
 
     void printOrder() const;
 
+    
+    
+    
+    //只有內部可以使用操作的資料
+private:
+    
+    struct OrderLocation {
+        Side side;
+        int price; 
+    };
+    
     bool canMatch(const Order& buy, const Order& sell) const;
 
+    std::unordered_map<int, OrderLocation> orderLocations_;
 
-
-//只有內部可以使用操作的資料
-private:
-
-    std::unordered_set<int> orderids_;
-
+    static const char* sideToString(Side side);
 
     Trade executeTrade(Order& buy, Order& sell, int tradePrice);
 

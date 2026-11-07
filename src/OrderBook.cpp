@@ -16,14 +16,26 @@ vector<Trade> OrderBook::addOrder(const Order& order) {
     if (hasOrderId(new_book.id)) {
         throw invalid_argument("Duplicate order ID");
     } 
-    if (new_book.side == "Buy") {
+    if (new_book.side == Side::Buy) {
         processBuyOrder(new_book, trades);
 
-    } else if(order.side == "Sell") {
+    } else if(new_book.side == Side::Sell) {
         processSellOrder(new_book, trades);
     }
     return trades;
 }
+
+const char* OrderBook::sideToString(Side side) {
+    switch (side) {
+        case Side::Buy:
+            return "Buy";
+
+        case Side::Sell:
+            return "Sell";
+    }
+    return "Unknown";
+}
+
 
 
 void OrderBook::printOrder() const {
@@ -31,9 +43,9 @@ void OrderBook::printOrder() const {
     for(auto levelIt = buyLevels_.begin(); levelIt != buyLevels_.end(); ++levelIt) {
         const PriceLevel& orders = levelIt->second;
 
-        for (auto orderIt = orders.begin(); orderIt != orders.end(); ++ orderIt) {
+        for (auto orderIt = orders.begin(); orderIt != orders.end(); ++orderIt) {
             std::cout << "id : " << orderIt->id << endl;
-            std::cout << "side : " << orderIt->side << endl;
+            std::cout << "side : " << sideToString(orderIt->side) << endl;
             std::cout << "price : " << orderIt->price << endl;
             std::cout << "quantity : " << orderIt->quantity << endl;
         }
@@ -42,9 +54,9 @@ void OrderBook::printOrder() const {
     for(auto levelIt = sellLevels_.begin(); levelIt != sellLevels_.end(); ++levelIt) {
         const PriceLevel& orders = levelIt->second;
 
-        for (auto orderIt = orders.begin(); orderIt != orders.end(); ++ orderIt) {
+        for (auto orderIt = orders.begin(); orderIt != orders.end(); ++orderIt) {
             std::cout << "id : " << orderIt->id << endl;
-            std::cout << "side : " << orderIt->side << endl;
+            std::cout << "side : " << sideToString(orderIt->side) << endl;
             std::cout << "price : " << orderIt->price << endl;
             std::cout << "quantity : " << orderIt->quantity << endl;
         }
@@ -52,45 +64,58 @@ void OrderBook::printOrder() const {
 }
 
 
-bool OrderBook::cancelOrder(string side, int id) {
-    if (side == "Buy") {
-        for (auto levelIt = buyLevels_.begin(); levelIt != buyLevels_.end(); ++levelIt) {
-            PriceLevel& orders = levelIt->second;
+bool OrderBook::cancelOrder(int id) {
 
-            for (auto orderIt = orders.begin(); orderIt != orders.end(); ++orderIt) {
-                if (orderIt->id == id) {
-                    orders.erase(orderIt);
-                    orderids_.erase(id);
-                    if (orders.empty()) {
-                        buyLevels_.erase(levelIt);
-                    }
-                    return true;
+    auto locationIt = orderLocations_.find(id);
+    if(locationIt == orderLocations_.end()) {
+        return false;
+    }
+    auto find_order = locationIt->second;
+    
+
+    if(find_order.side == Side::Buy) {
+        auto buy_price = buyLevels_.find(find_order.price);
+        if (buy_price == buyLevels_.end()){
+            return false;
+        }
+        PriceLevel& price_queue = buy_price->second;
+    
+        for (auto orderIt = price_queue.begin(); orderIt != price_queue.end(); ++orderIt) {
+            if (orderIt->id == id) {
+                price_queue.erase(orderIt);
+
+                orderLocations_.erase(id);
+                if (price_queue.empty()) {
+                    buyLevels_.erase(buy_price);
                 }
+                return true;
             }
         }
-    } else if (side == "Sell") {
+    } else if(find_order.side == Side::Sell){
+        auto sell_price = sellLevels_.find(find_order.price);
+        if(sell_price == sellLevels_.end()) {
+            return false;
+        }
+        PriceLevel& price_queue = sell_price->second;
+    
+        for (auto orderIt = price_queue.begin(); orderIt != price_queue.end(); ++orderIt) {
+            if (orderIt->id == id) {
+                price_queue.erase(orderIt);
 
-        for (auto levelIt = sellLevels_.begin(); levelIt != sellLevels_.end(); ++levelIt) {
-            PriceLevel& orders = levelIt->second;
-            for (auto orderIt = orders.begin(); orderIt != orders.end(); ++orderIt) {
-                if (orderIt->id == id) {
-                    orders.erase(orderIt);
-                    orderids_.erase(id);
-                    if (orders.empty()) {
-                        sellLevels_.erase(levelIt);
-                    }
-                    return true;
+                orderLocations_.erase(id);
+                if (price_queue.empty()) {
+                    sellLevels_.erase(sell_price);
                 }
+                return true;
             }
         }
-        
     }
     return false;
 }
 
 
 size_t OrderBook::orderCount() const {
-    return orderids_.size();
+    return orderLocations_.size();
 }
 
 
@@ -121,9 +146,10 @@ Trade OrderBook::executeTrade(Order& buy, Order& sell, int tradePrice) {
 
 
 bool OrderBook::isValidOrder(const Order& order) const {
-    if (order.side != "Buy" && order.side != "Sell") {
+    if (order.side != Side::Buy && order.side != Side::Sell) {
         return false;
     }
+
     if (order.price <= 0) {
         return false;
     }
@@ -136,20 +162,32 @@ bool OrderBook::isValidOrder(const Order& order) const {
 }
 
 bool OrderBook::hasOrderId(int id) const {
-
-    if (orderids_.count(id) > 0) {
-        return true;
-    }
-    return false;
+    return orderLocations_.find(id) != orderLocations_.end();
 }
 
 
 void OrderBook::addBuyToLevel(const Order& order) {
     buyLevels_[order.price].push_back(order);
+
+
+    OrderLocation location;
+
+    location.side = order.side;
+    location.price = order.price;
+
+    orderLocations_.insert({order.id, location});
 }
 
 void OrderBook::addSellToLevel(const Order& order) {
     sellLevels_[order.price].push_back(order);
+
+
+    OrderLocation location;
+
+    location.side = order.side;
+    location.price = order.price;
+
+    orderLocations_.insert({order.id, location});
 }
 
 Order* OrderBook::getBestBuyOrder() {
@@ -187,8 +225,7 @@ void OrderBook::removeBestBuyOrder() {
 
     Order& earlylist_price = price_queue.front();
 
-    orderids_.erase(earlylist_price.id);
-
+    orderLocations_.erase(earlylist_price.id);
     price_queue.pop_front();
 
     if (price_queue.empty()) {
@@ -203,8 +240,7 @@ void OrderBook::removeBestSellOrder() {
 
     Order& earlylist_price = price_queue.front();
 
-    orderids_.erase(earlylist_price.id);
-
+    orderLocations_.erase(earlylist_price.id);
     price_queue.pop_front();
 
     if (price_queue.empty()) {
@@ -235,7 +271,6 @@ void OrderBook::processBuyOrder(Order& incoming, std::vector<Trade>& trades) {
     }
 
     if (incoming.quantity > 0) {
-        orderids_.insert(incoming.id);
         addBuyToLevel(incoming);
     }
 
@@ -261,7 +296,6 @@ void OrderBook::processSellOrder(Order& incoming, std::vector<Trade>& trades) {
         }
     }
     if (incoming.quantity > 0) {
-        orderids_.insert(incoming.id);
         addSellToLevel(incoming);
 
     }

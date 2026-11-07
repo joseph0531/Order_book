@@ -1,0 +1,18 @@
+Start testing: Nov 06 13:06 CST
+----------------------------------------------------------
+1/1 Testing: OrderBookTest
+1/1 Test: OrderBookTest
+Command: "/Users/te/Documents/Learn-code/HTF/Order_Book/build-release/orderbook_test"
+Directory: /Users/te/Documents/Learn-code/HTF/Order_Book/build-release
+"OrderBookTest" start time: Nov 06 13:06 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.36 sec
+----------------------------------------------------------
+Test Passed.
+"OrderBookTest" end time: Nov 06 13:06 CST
+"OrderBookTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 06 13:06 CST

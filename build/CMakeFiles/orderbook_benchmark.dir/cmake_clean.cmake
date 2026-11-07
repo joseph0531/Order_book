@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/orderbook_benchmark.dir/benchmarks/OrderBookBenchmark.cpp.o.d"
   "CMakeFiles/orderbook_benchmark.dir/src/OrderBook.cpp.o"
   "CMakeFiles/orderbook_benchmark.dir/src/OrderBook.cpp.o.d"
+  "CMakeFiles/orderbook_benchmark.dir/src/OrderManager.cpp.o"
+  "CMakeFiles/orderbook_benchmark.dir/src/OrderManager.cpp.o.d"
   "orderbook_benchmark"
   "orderbook_benchmark.pdb"
 )

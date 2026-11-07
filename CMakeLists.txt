@@ -13,6 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(orderbook
     src/main.cpp
     src/OrderBook.cpp
+    src/OrderManager.cpp
 )
 
 ##告訴編譯器當看到hpp請到以下目錄去尋找
@@ -24,13 +25,15 @@ target_include_directories(orderbook
 add_executable(orderbook_benchmark
     benchmarks/OrderBookBenchmark.cpp
     src/OrderBook.cpp
+    src/OrderManager.cpp
 )
 
 target_include_directories(orderbook_benchmark PRIVATE include)
 
 add_executable(orderbook_test
     tests/OrderBookTest.cpp
-    src/OrderBook.cpp    
+    src/OrderBook.cpp
+    src/OrderManager.cpp    
 )
 
 target_include_directories(orderbook_test PRIVATE include)
