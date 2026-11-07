@@ -16,6 +16,12 @@ public:
 
     std::size_t orderCount() const;
 
+    bool acceptOrder(int orderId);
+    bool rejectOrder(int orderId);
+
+    bool applyFill(int orderId, int fillQuantity);
+    bool cancelOrder(int orderId);
+
 private:
 
     std::unordered_map<int, OrderState> orders_;

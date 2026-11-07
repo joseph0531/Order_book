@@ -32,8 +32,7 @@ target_include_directories(orderbook_benchmark PRIVATE include)
 
 add_executable(orderbook_test
     tests/OrderBookTest.cpp
-    src/OrderBook.cpp
-    src/OrderManager.cpp    
+    src/OrderBook.cpp   
 )
 
 target_include_directories(orderbook_test PRIVATE include)
@@ -45,6 +44,30 @@ add_test(
         COMMAND orderbook_test
 )
 
+add_executable(order_manager_test
+    tests/OrderManagerTest.cpp
+    src/OrderManager.cpp
+)
+
+target_include_directories(order_manager_test PRIVATE include)
+
+add_test(
+        NAME OrderManagerTest
+        COMMAND order_manager_test
+)
+
+add_executable(trading_engine_test
+    tests/TradingEngineTest.cpp
+    src/TradingEngine.cpp
+    src/OrderManager.cpp
+    src/OrderBook.cpp
+)
+target_include_directories(trading_engine_test PRIVATE include)
+
+add_test(
+        NAME TradingEngineTest
+        COMMAND trading_engine_test
+)
 
 ##cmake -S . -B build
 ##cmake --build build

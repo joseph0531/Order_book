@@ -51,4 +51,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/orderbook.dir/DependInfo.cmake"
   "CMakeFiles/orderbook_benchmark.dir/DependInfo.cmake"
   "CMakeFiles/orderbook_test.dir/DependInfo.cmake"
+  "CMakeFiles/order_manager_test.dir/DependInfo.cmake"
+  "CMakeFiles/trading_engine_test.dir/DependInfo.cmake"
   )

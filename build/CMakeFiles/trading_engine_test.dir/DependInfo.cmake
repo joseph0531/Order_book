@@ -1,0 +1,26 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/te/Documents/Learn-code/HTF/Order_Book/src/OrderBook.cpp" "CMakeFiles/trading_engine_test.dir/src/OrderBook.cpp.o" "gcc" "CMakeFiles/trading_engine_test.dir/src/OrderBook.cpp.o.d"
+  "/Users/te/Documents/Learn-code/HTF/Order_Book/src/OrderManager.cpp" "CMakeFiles/trading_engine_test.dir/src/OrderManager.cpp.o" "gcc" "CMakeFiles/trading_engine_test.dir/src/OrderManager.cpp.o.d"
+  "/Users/te/Documents/Learn-code/HTF/Order_Book/src/TradingEngine.cpp" "CMakeFiles/trading_engine_test.dir/src/TradingEngine.cpp.o" "gcc" "CMakeFiles/trading_engine_test.dir/src/TradingEngine.cpp.o.d"
+  "/Users/te/Documents/Learn-code/HTF/Order_Book/tests/TradingEngineTest.cpp" "CMakeFiles/trading_engine_test.dir/tests/TradingEngineTest.cpp.o" "gcc" "CMakeFiles/trading_engine_test.dir/tests/TradingEngineTest.cpp.o.d"
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

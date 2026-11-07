@@ -5,4 +5,8 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 add_test(OrderBookTest "/Users/te/Documents/Learn-code/HTF/Order_Book/build/orderbook_test")
-set_tests_properties(OrderBookTest PROPERTIES  _BACKTRACE_TRIPLES "/Users/te/Documents/Learn-code/HTF/Order_Book/CMakeLists.txt;43;add_test;/Users/te/Documents/Learn-code/HTF/Order_Book/CMakeLists.txt;0;")
+set_tests_properties(OrderBookTest PROPERTIES  _BACKTRACE_TRIPLES "/Users/te/Documents/Learn-code/HTF/Order_Book/CMakeLists.txt;42;add_test;/Users/te/Documents/Learn-code/HTF/Order_Book/CMakeLists.txt;0;")
+add_test(OrderManagerTest "/Users/te/Documents/Learn-code/HTF/Order_Book/build/order_manager_test")
+set_tests_properties(OrderManagerTest PROPERTIES  _BACKTRACE_TRIPLES "/Users/te/Documents/Learn-code/HTF/Order_Book/CMakeLists.txt;54;add_test;/Users/te/Documents/Learn-code/HTF/Order_Book/CMakeLists.txt;0;")
+add_test(TradingEngineTest "/Users/te/Documents/Learn-code/HTF/Order_Book/build/trading_engine_test")
+set_tests_properties(TradingEngineTest PROPERTIES  _BACKTRACE_TRIPLES "/Users/te/Documents/Learn-code/HTF/Order_Book/CMakeLists.txt;67;add_test;/Users/te/Documents/Learn-code/HTF/Order_Book/CMakeLists.txt;0;")

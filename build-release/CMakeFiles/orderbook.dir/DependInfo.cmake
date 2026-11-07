@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/te/Documents/Learn-code/HTF/Order_Book/src/OrderBook.cpp" "CMakeFiles/orderbook.dir/src/OrderBook.cpp.o" "gcc" "CMakeFiles/orderbook.dir/src/OrderBook.cpp.o.d"
+  "/Users/te/Documents/Learn-code/HTF/Order_Book/src/OrderManager.cpp" "CMakeFiles/orderbook.dir/src/OrderManager.cpp.o" "gcc" "CMakeFiles/orderbook.dir/src/OrderManager.cpp.o.d"
   "/Users/te/Documents/Learn-code/HTF/Order_Book/src/main.cpp" "CMakeFiles/orderbook.dir/src/main.cpp.o" "gcc" "CMakeFiles/orderbook.dir/src/main.cpp.o.d"
   )
 

@@ -1,18 +1,48 @@
-Start testing: Nov 06 17:12 CST
+Start testing: Nov 07 18:41 CST
 ----------------------------------------------------------
-1/1 Testing: OrderBookTest
-1/1 Test: OrderBookTest
+1/3 Testing: OrderBookTest
+1/3 Test: OrderBookTest
 Command: "/Users/te/Documents/Learn-code/HTF/Order_Book/build/orderbook_test"
 Directory: /Users/te/Documents/Learn-code/HTF/Order_Book/build
-"OrderBookTest" start time: Nov 06 17:12 CST
+"OrderBookTest" start time: Nov 07 18:41 CST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.54 sec
+Test time =   0.45 sec
 ----------------------------------------------------------
 Test Passed.
-"OrderBookTest" end time: Nov 06 17:12 CST
+"OrderBookTest" end time: Nov 07 18:41 CST
 "OrderBookTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Nov 06 17:12 CST
+2/3 Testing: OrderManagerTest
+2/3 Test: OrderManagerTest
+Command: "/Users/te/Documents/Learn-code/HTF/Order_Book/build/order_manager_test"
+Directory: /Users/te/Documents/Learn-code/HTF/Order_Book/build
+"OrderManagerTest" start time: Nov 07 18:41 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.36 sec
+----------------------------------------------------------
+Test Passed.
+"OrderManagerTest" end time: Nov 07 18:41 CST
+"OrderManagerTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+3/3 Testing: TradingEngineTest
+3/3 Test: TradingEngineTest
+Command: "/Users/te/Documents/Learn-code/HTF/Order_Book/build/trading_engine_test"
+Directory: /Users/te/Documents/Learn-code/HTF/Order_Book/build
+"TradingEngineTest" start time: Nov 07 18:41 CST
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.35 sec
+----------------------------------------------------------
+Test Passed.
+"TradingEngineTest" end time: Nov 07 18:41 CST
+"TradingEngineTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Nov 07 18:41 CST

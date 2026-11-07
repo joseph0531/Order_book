@@ -4,6 +4,7 @@
 #include "OrderManager.hpp"
 
 
+
 void benchmarkInsert(int orderCount) {
     double avg_time = 0;
     for (int run = 0; run < 10; run++) {
@@ -90,19 +91,11 @@ void cancelOrderbenchmark(int N) {
     return;
 }
 
-void addOrderManager(Order& order) {
-    OrderManager order_manage;
 
-    order_manage.createOrder(order);
-
-    order_manage.getOrder(order.id);
-}
 
 
 
 int main() {
-    cancelOrderbenchmark(10000);
-    cancelOrderbenchmark(20000);
-    cancelOrderbenchmark(40000);
+
     return 0;
 }

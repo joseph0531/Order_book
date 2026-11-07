@@ -6,5 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/Users/te/Documents/Learn-code/HTF/Order_Book/include
 
-CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17
+CXX_FLAGSarm64 = -O3 -DNDEBUG -std=gnu++17 -arch arm64
+
+CXX_FLAGS = -O3 -DNDEBUG -std=gnu++17 -arch arm64
 

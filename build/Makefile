@@ -165,6 +165,32 @@ orderbook_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/build
 .PHONY : orderbook_test/fast
 
+#=============================================================================
+# Target rules for targets named order_manager_test
+
+# Build rule for target.
+order_manager_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 order_manager_test
+.PHONY : order_manager_test
+
+# fast build rule for target.
+order_manager_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order_manager_test.dir/build.make CMakeFiles/order_manager_test.dir/build
+.PHONY : order_manager_test/fast
+
+#=============================================================================
+# Target rules for targets named trading_engine_test
+
+# Build rule for target.
+trading_engine_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 trading_engine_test
+.PHONY : trading_engine_test
+
+# fast build rule for target.
+trading_engine_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/build
+.PHONY : trading_engine_test/fast
+
 benchmarks/OrderBookBenchmark.o: benchmarks/OrderBookBenchmark.cpp.o
 .PHONY : benchmarks/OrderBookBenchmark.o
 
@@ -197,6 +223,7 @@ src/OrderBook.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook.dir/build.make CMakeFiles/orderbook.dir/src/OrderBook.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_benchmark.dir/build.make CMakeFiles/orderbook_benchmark.dir/src/OrderBook.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderBook.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/OrderBook.cpp.o
 .PHONY : src/OrderBook.cpp.o
 
 src/OrderBook.i: src/OrderBook.cpp.i
@@ -207,6 +234,7 @@ src/OrderBook.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook.dir/build.make CMakeFiles/orderbook.dir/src/OrderBook.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_benchmark.dir/build.make CMakeFiles/orderbook_benchmark.dir/src/OrderBook.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderBook.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/OrderBook.cpp.i
 .PHONY : src/OrderBook.cpp.i
 
 src/OrderBook.s: src/OrderBook.cpp.s
@@ -217,6 +245,7 @@ src/OrderBook.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook.dir/build.make CMakeFiles/orderbook.dir/src/OrderBook.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_benchmark.dir/build.make CMakeFiles/orderbook_benchmark.dir/src/OrderBook.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderBook.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/OrderBook.cpp.s
 .PHONY : src/OrderBook.cpp.s
 
 src/OrderManager.o: src/OrderManager.cpp.o
@@ -226,7 +255,8 @@ src/OrderManager.o: src/OrderManager.cpp.o
 src/OrderManager.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook.dir/build.make CMakeFiles/orderbook.dir/src/OrderManager.cpp.o
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_benchmark.dir/build.make CMakeFiles/orderbook_benchmark.dir/src/OrderManager.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order_manager_test.dir/build.make CMakeFiles/order_manager_test.dir/src/OrderManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/OrderManager.cpp.o
 .PHONY : src/OrderManager.cpp.o
 
 src/OrderManager.i: src/OrderManager.cpp.i
@@ -236,7 +266,8 @@ src/OrderManager.i: src/OrderManager.cpp.i
 src/OrderManager.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook.dir/build.make CMakeFiles/orderbook.dir/src/OrderManager.cpp.i
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_benchmark.dir/build.make CMakeFiles/orderbook_benchmark.dir/src/OrderManager.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order_manager_test.dir/build.make CMakeFiles/order_manager_test.dir/src/OrderManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/OrderManager.cpp.i
 .PHONY : src/OrderManager.cpp.i
 
 src/OrderManager.s: src/OrderManager.cpp.s
@@ -246,8 +277,33 @@ src/OrderManager.s: src/OrderManager.cpp.s
 src/OrderManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook.dir/build.make CMakeFiles/orderbook.dir/src/OrderManager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_benchmark.dir/build.make CMakeFiles/orderbook_benchmark.dir/src/OrderManager.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order_manager_test.dir/build.make CMakeFiles/order_manager_test.dir/src/OrderManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/OrderManager.cpp.s
 .PHONY : src/OrderManager.cpp.s
+
+src/TradingEngine.o: src/TradingEngine.cpp.o
+.PHONY : src/TradingEngine.o
+
+# target to build an object file
+src/TradingEngine.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/TradingEngine.cpp.o
+.PHONY : src/TradingEngine.cpp.o
+
+src/TradingEngine.i: src/TradingEngine.cpp.i
+.PHONY : src/TradingEngine.i
+
+# target to preprocess a source file
+src/TradingEngine.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/TradingEngine.cpp.i
+.PHONY : src/TradingEngine.cpp.i
+
+src/TradingEngine.s: src/TradingEngine.cpp.s
+.PHONY : src/TradingEngine.s
+
+# target to generate assembly for a file
+src/TradingEngine.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/TradingEngine.cpp.s
+.PHONY : src/TradingEngine.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -297,6 +353,54 @@ tests/OrderBookTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/tests/OrderBookTest.cpp.s
 .PHONY : tests/OrderBookTest.cpp.s
 
+tests/OrderManagerTest.o: tests/OrderManagerTest.cpp.o
+.PHONY : tests/OrderManagerTest.o
+
+# target to build an object file
+tests/OrderManagerTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order_manager_test.dir/build.make CMakeFiles/order_manager_test.dir/tests/OrderManagerTest.cpp.o
+.PHONY : tests/OrderManagerTest.cpp.o
+
+tests/OrderManagerTest.i: tests/OrderManagerTest.cpp.i
+.PHONY : tests/OrderManagerTest.i
+
+# target to preprocess a source file
+tests/OrderManagerTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order_manager_test.dir/build.make CMakeFiles/order_manager_test.dir/tests/OrderManagerTest.cpp.i
+.PHONY : tests/OrderManagerTest.cpp.i
+
+tests/OrderManagerTest.s: tests/OrderManagerTest.cpp.s
+.PHONY : tests/OrderManagerTest.s
+
+# target to generate assembly for a file
+tests/OrderManagerTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/order_manager_test.dir/build.make CMakeFiles/order_manager_test.dir/tests/OrderManagerTest.cpp.s
+.PHONY : tests/OrderManagerTest.cpp.s
+
+tests/TradingEngineTest.o: tests/TradingEngineTest.cpp.o
+.PHONY : tests/TradingEngineTest.o
+
+# target to build an object file
+tests/TradingEngineTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/tests/TradingEngineTest.cpp.o
+.PHONY : tests/TradingEngineTest.cpp.o
+
+tests/TradingEngineTest.i: tests/TradingEngineTest.cpp.i
+.PHONY : tests/TradingEngineTest.i
+
+# target to preprocess a source file
+tests/TradingEngineTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/tests/TradingEngineTest.cpp.i
+.PHONY : tests/TradingEngineTest.cpp.i
+
+tests/TradingEngineTest.s: tests/TradingEngineTest.cpp.s
+.PHONY : tests/TradingEngineTest.s
+
+# target to generate assembly for a file
+tests/TradingEngineTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/tests/TradingEngineTest.cpp.s
+.PHONY : tests/TradingEngineTest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -306,9 +410,11 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... order_manager_test"
 	@echo "... orderbook"
 	@echo "... orderbook_benchmark"
 	@echo "... orderbook_test"
+	@echo "... trading_engine_test"
 	@echo "... benchmarks/OrderBookBenchmark.o"
 	@echo "... benchmarks/OrderBookBenchmark.i"
 	@echo "... benchmarks/OrderBookBenchmark.s"
@@ -318,12 +424,21 @@ help:
 	@echo "... src/OrderManager.o"
 	@echo "... src/OrderManager.i"
 	@echo "... src/OrderManager.s"
+	@echo "... src/TradingEngine.o"
+	@echo "... src/TradingEngine.i"
+	@echo "... src/TradingEngine.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... tests/OrderBookTest.o"
 	@echo "... tests/OrderBookTest.i"
 	@echo "... tests/OrderBookTest.s"
+	@echo "... tests/OrderManagerTest.o"
+	@echo "... tests/OrderManagerTest.i"
+	@echo "... tests/OrderManagerTest.s"
+	@echo "... tests/TradingEngineTest.o"
+	@echo "... tests/TradingEngineTest.i"
+	@echo "... tests/TradingEngineTest.s"
 .PHONY : help
 
 

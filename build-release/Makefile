@@ -219,6 +219,36 @@ src/OrderBook.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderBook.cpp.s
 .PHONY : src/OrderBook.cpp.s
 
+src/OrderManager.o: src/OrderManager.cpp.o
+.PHONY : src/OrderManager.o
+
+# target to build an object file
+src/OrderManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook.dir/build.make CMakeFiles/orderbook.dir/src/OrderManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_benchmark.dir/build.make CMakeFiles/orderbook_benchmark.dir/src/OrderManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderManager.cpp.o
+.PHONY : src/OrderManager.cpp.o
+
+src/OrderManager.i: src/OrderManager.cpp.i
+.PHONY : src/OrderManager.i
+
+# target to preprocess a source file
+src/OrderManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook.dir/build.make CMakeFiles/orderbook.dir/src/OrderManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_benchmark.dir/build.make CMakeFiles/orderbook_benchmark.dir/src/OrderManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderManager.cpp.i
+.PHONY : src/OrderManager.cpp.i
+
+src/OrderManager.s: src/OrderManager.cpp.s
+.PHONY : src/OrderManager.s
+
+# target to generate assembly for a file
+src/OrderManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook.dir/build.make CMakeFiles/orderbook.dir/src/OrderManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_benchmark.dir/build.make CMakeFiles/orderbook_benchmark.dir/src/OrderManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/orderbook_test.dir/build.make CMakeFiles/orderbook_test.dir/src/OrderManager.cpp.s
+.PHONY : src/OrderManager.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -285,6 +315,9 @@ help:
 	@echo "... src/OrderBook.o"
 	@echo "... src/OrderBook.i"
 	@echo "... src/OrderBook.s"
+	@echo "... src/OrderManager.o"
+	@echo "... src/OrderManager.i"
+	@echo "... src/OrderManager.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
