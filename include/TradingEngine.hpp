@@ -3,11 +3,18 @@
 #include <vector>
 #include "OrderManager.hpp"
 #include "OrderBook.hpp"
+#include "ExecutionReport.hpp"
 
 
 struct SubmitResult{
     bool accepted;
     std::vector<Trade> trades;
+    std::vector<ExecutionReport> reports;
+};
+
+struct CancelResult{
+    bool cancelled;
+    std::vector<ExecutionReport> reports;
 };
 
 
@@ -19,6 +26,8 @@ public:
     const OrderState* getOrderState(int orderId) const;
     
     std::size_t restingOrderCount() const;
+
+    CancelResult cancelOrder(int orderId);
 
 private:
 
