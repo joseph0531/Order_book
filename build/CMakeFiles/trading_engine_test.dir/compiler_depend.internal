@@ -2252,6 +2252,7 @@ CMakeFiles/trading_engine_test.dir/src/TradingEngine.cpp.o
  /Users/te/Documents/Learn-code/HTF/Order_Book/include/OrderBook.hpp
  /Users/te/Documents/Learn-code/HTF/Order_Book/include/OrderManager.hpp
  /Users/te/Documents/Learn-code/HTF/Order_Book/include/OrderState.hpp
+ /Users/te/Documents/Learn-code/HTF/Order_Book/include/RiskManager.hpp
  /Users/te/Documents/Learn-code/HTF/Order_Book/include/Trade.hpp
  /Users/te/Documents/Learn-code/HTF/Order_Book/include/TradingEngine.hpp
 

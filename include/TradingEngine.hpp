@@ -4,6 +4,7 @@
 #include "OrderManager.hpp"
 #include "OrderBook.hpp"
 #include "ExecutionReport.hpp"
+#include "RiskManager.hpp"
 
 
 struct SubmitResult{
@@ -29,10 +30,12 @@ public:
 
     CancelResult cancelOrder(int orderId);
 
-private:
+    explicit TradingEngine(const RiskLimits& limits);
 
-    bool isValidOrder(const Order& order) const;
+
+private:
 
     OrderManager orderManager_;
     OrderBook orderBook_;
+    RiskManager riskManager_;
 };

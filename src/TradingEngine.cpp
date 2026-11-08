@@ -1,9 +1,11 @@
 #include "TradingEngine.hpp"
 #include <stdexcept>
+#include "RiskManager.hpp"
 
 
 SubmitResult TradingEngine::submitOrder(const Order& order) {
     SubmitResult result;
+    RiskCheckResult riskCheck;
     result.accepted = false;
     result.trades = {};
     if(!orderManager_.createOrder(order)) {
@@ -12,8 +14,9 @@ SubmitResult TradingEngine::submitOrder(const Order& order) {
         result.reports = {ExecutionReport{order.id, ExecutionEvent::Rejected, OrderStatus::Rejected, 0,0, order.quantity}};
         return result;
     }
-    
-    if (!isValidOrder(order)) {
+    riskCheck = riskManager_.checkOrder(order);    
+
+    if(!riskCheck.approved) {
         orderManager_.rejectOrder(order.id);
         result.reports = {ExecutionReport{order.id, ExecutionEvent::Rejected, OrderStatus::Rejected, 0,0, order.quantity}};
         result.accepted = false;
@@ -57,21 +60,6 @@ std::size_t TradingEngine::restingOrderCount() const {
     return orderBook_.orderCount();
 }
 
-bool TradingEngine::isValidOrder(const Order& order) const{
-    if (order.side != Side::Buy && order.side != Side::Sell) {
-        return false;
-    }
-
-    if (order.price <= 0) {
-        return false;
-    }
-
-    if (order.quantity <= 0) {
-        return false;
-    }
-
-    return true;
-}
 
 CancelResult TradingEngine::cancelOrder(int orderId) {
     CancelResult result;
@@ -106,4 +94,8 @@ CancelResult TradingEngine::cancelOrder(int orderId) {
     };
 
     return result;
+}
+
+TradingEngine::TradingEngine(const RiskLimits& limits) : riskManager_(limits) {
+
 }

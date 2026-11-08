@@ -61,12 +61,25 @@ add_executable(trading_engine_test
     src/TradingEngine.cpp
     src/OrderManager.cpp
     src/OrderBook.cpp
+    src/RiskManager.cpp
 )
 target_include_directories(trading_engine_test PRIVATE include)
 
 add_test(
         NAME TradingEngineTest
         COMMAND trading_engine_test
+)
+
+add_executable(risk_manager_test
+    tests/RiskManagerTest.cpp
+    src/RiskManager.cpp
+)
+
+target_include_directories(risk_manager_test PRIVATE include)
+
+add_test(
+        NAME RiskManagerTest
+        COMMAND risk_manager_test
 )
 
 ##cmake -S . -B build

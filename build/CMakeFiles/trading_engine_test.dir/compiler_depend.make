@@ -2249,6 +2249,7 @@ CMakeFiles/trading_engine_test.dir/src/TradingEngine.cpp.o: /Users/te/Documents/
   /Users/te/Documents/Learn-code/HTF/Order_Book/include/OrderBook.hpp \
   /Users/te/Documents/Learn-code/HTF/Order_Book/include/OrderManager.hpp \
   /Users/te/Documents/Learn-code/HTF/Order_Book/include/OrderState.hpp \
+  /Users/te/Documents/Learn-code/HTF/Order_Book/include/RiskManager.hpp \
   /Users/te/Documents/Learn-code/HTF/Order_Book/include/Trade.hpp \
   /Users/te/Documents/Learn-code/HTF/Order_Book/include/TradingEngine.hpp
 
@@ -4592,6 +4593,8 @@ CMakeFiles/trading_engine_test.dir/tests/TradingEngineTest.cpp.o: /Users/te/Docu
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/mutex:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/partial_sort_copy.h:
+
+/Users/te/Documents/Learn-code/HTF/Order_Book/include/RiskManager.hpp:
 
 /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/types.h:
 

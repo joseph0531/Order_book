@@ -5,8 +5,8 @@
 
 enum class RiskRejectReason {
     None,
-    InvalidOrder,
-    InvalidPrcie,
+    InvalidSide,
+    InvalidPrice,
     InvalidQuantity,
     OrderQuantityLimitExceeded
 };

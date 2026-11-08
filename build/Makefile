@@ -191,6 +191,19 @@ trading_engine_test/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/build
 .PHONY : trading_engine_test/fast
 
+#=============================================================================
+# Target rules for targets named risk_manager_test
+
+# Build rule for target.
+risk_manager_test: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 risk_manager_test
+.PHONY : risk_manager_test
+
+# fast build rule for target.
+risk_manager_test/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/risk_manager_test.dir/build.make CMakeFiles/risk_manager_test.dir/build
+.PHONY : risk_manager_test/fast
+
 benchmarks/OrderBookBenchmark.o: benchmarks/OrderBookBenchmark.cpp.o
 .PHONY : benchmarks/OrderBookBenchmark.o
 
@@ -280,6 +293,33 @@ src/OrderManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/order_manager_test.dir/build.make CMakeFiles/order_manager_test.dir/src/OrderManager.cpp.s
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/OrderManager.cpp.s
 .PHONY : src/OrderManager.cpp.s
+
+src/RiskManager.o: src/RiskManager.cpp.o
+.PHONY : src/RiskManager.o
+
+# target to build an object file
+src/RiskManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/RiskManager.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/risk_manager_test.dir/build.make CMakeFiles/risk_manager_test.dir/src/RiskManager.cpp.o
+.PHONY : src/RiskManager.cpp.o
+
+src/RiskManager.i: src/RiskManager.cpp.i
+.PHONY : src/RiskManager.i
+
+# target to preprocess a source file
+src/RiskManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/RiskManager.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/risk_manager_test.dir/build.make CMakeFiles/risk_manager_test.dir/src/RiskManager.cpp.i
+.PHONY : src/RiskManager.cpp.i
+
+src/RiskManager.s: src/RiskManager.cpp.s
+.PHONY : src/RiskManager.s
+
+# target to generate assembly for a file
+src/RiskManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/trading_engine_test.dir/build.make CMakeFiles/trading_engine_test.dir/src/RiskManager.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/risk_manager_test.dir/build.make CMakeFiles/risk_manager_test.dir/src/RiskManager.cpp.s
+.PHONY : src/RiskManager.cpp.s
 
 src/TradingEngine.o: src/TradingEngine.cpp.o
 .PHONY : src/TradingEngine.o
@@ -377,6 +417,30 @@ tests/OrderManagerTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/order_manager_test.dir/build.make CMakeFiles/order_manager_test.dir/tests/OrderManagerTest.cpp.s
 .PHONY : tests/OrderManagerTest.cpp.s
 
+tests/RiskManagerTest.o: tests/RiskManagerTest.cpp.o
+.PHONY : tests/RiskManagerTest.o
+
+# target to build an object file
+tests/RiskManagerTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/risk_manager_test.dir/build.make CMakeFiles/risk_manager_test.dir/tests/RiskManagerTest.cpp.o
+.PHONY : tests/RiskManagerTest.cpp.o
+
+tests/RiskManagerTest.i: tests/RiskManagerTest.cpp.i
+.PHONY : tests/RiskManagerTest.i
+
+# target to preprocess a source file
+tests/RiskManagerTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/risk_manager_test.dir/build.make CMakeFiles/risk_manager_test.dir/tests/RiskManagerTest.cpp.i
+.PHONY : tests/RiskManagerTest.cpp.i
+
+tests/RiskManagerTest.s: tests/RiskManagerTest.cpp.s
+.PHONY : tests/RiskManagerTest.s
+
+# target to generate assembly for a file
+tests/RiskManagerTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/risk_manager_test.dir/build.make CMakeFiles/risk_manager_test.dir/tests/RiskManagerTest.cpp.s
+.PHONY : tests/RiskManagerTest.cpp.s
+
 tests/TradingEngineTest.o: tests/TradingEngineTest.cpp.o
 .PHONY : tests/TradingEngineTest.o
 
@@ -414,6 +478,7 @@ help:
 	@echo "... orderbook"
 	@echo "... orderbook_benchmark"
 	@echo "... orderbook_test"
+	@echo "... risk_manager_test"
 	@echo "... trading_engine_test"
 	@echo "... benchmarks/OrderBookBenchmark.o"
 	@echo "... benchmarks/OrderBookBenchmark.i"
@@ -424,6 +489,9 @@ help:
 	@echo "... src/OrderManager.o"
 	@echo "... src/OrderManager.i"
 	@echo "... src/OrderManager.s"
+	@echo "... src/RiskManager.o"
+	@echo "... src/RiskManager.i"
+	@echo "... src/RiskManager.s"
 	@echo "... src/TradingEngine.o"
 	@echo "... src/TradingEngine.i"
 	@echo "... src/TradingEngine.s"
@@ -436,6 +504,9 @@ help:
 	@echo "... tests/OrderManagerTest.o"
 	@echo "... tests/OrderManagerTest.i"
 	@echo "... tests/OrderManagerTest.s"
+	@echo "... tests/RiskManagerTest.o"
+	@echo "... tests/RiskManagerTest.i"
+	@echo "... tests/RiskManagerTest.s"
 	@echo "... tests/TradingEngineTest.o"
 	@echo "... tests/TradingEngineTest.i"
 	@echo "... tests/TradingEngineTest.s"

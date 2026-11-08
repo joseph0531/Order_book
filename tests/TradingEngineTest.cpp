@@ -3,7 +3,7 @@
 #include "TradingEngine.hpp"
 
 void testRestingOrderAndFullMatch() {
-    TradingEngine engine;
+    TradingEngine engine{RiskLimits{100}};
 
     const SubmitResult sellResult =
         engine.submitOrder({1, Side::Sell, 100, 10});
@@ -63,7 +63,7 @@ void testRestingOrderAndFullMatch() {
 }
 
 void testInvalidOrderIsRejected() {
-    TradingEngine engine;
+    TradingEngine engine{RiskLimits{100}};
 
     const SubmitResult result =
         engine.submitOrder({3, Side::Buy, -1, 10});
@@ -86,7 +86,7 @@ void testInvalidOrderIsRejected() {
 }
 
 void testDuplicateHistoricalIdIsRejectedWithoutOverwrite() {
-    TradingEngine engine;
+    TradingEngine engine{RiskLimits{100}};
 
     assert(engine.submitOrder({4, Side::Sell, 100, 5}).accepted);
     assert(engine.submitOrder({5, Side::Buy, 100, 5}).accepted);
@@ -119,7 +119,7 @@ void testDuplicateHistoricalIdIsRejectedWithoutOverwrite() {
 }
 
 void testCancelRestingOrder() {
-    TradingEngine engine;
+    TradingEngine engine{RiskLimits{100}};
 
     assert(engine.submitOrder({10, Side::Buy, 100, 20}).accepted);
     assert(engine.restingOrderCount() == 1);
@@ -144,7 +144,7 @@ void testCancelRestingOrder() {
 }
 
 void testCancelPartiallyFilledOrder() {
-    TradingEngine engine;
+    TradingEngine engine{RiskLimits{100}};
 
     assert(engine.submitOrder({20, Side::Sell, 100, 10}).accepted);
     const SubmitResult buyResult =
@@ -177,7 +177,7 @@ void testCancelPartiallyFilledOrder() {
 }
 
 void testCannotCancelTerminalOrUnknownOrder() {
-    TradingEngine engine;
+    TradingEngine engine{RiskLimits{100}};
 
     assert(engine.submitOrder({30, Side::Sell, 100, 5}).accepted);
     assert(engine.submitOrder({31, Side::Buy, 100, 5}).accepted);
@@ -199,6 +199,27 @@ void testCannotCancelTerminalOrUnknownOrder() {
     assert(unknownCancelResult.reports.empty());
 }
 
+void testRiskQuantityLimitIntegration() {
+    TradingEngine engine{RiskLimits{10}};
+
+    const SubmitResult boundaryResult =
+        engine.submitOrder({40, Side::Buy, 100, 10});
+    assert(boundaryResult.accepted);
+    assert(engine.restingOrderCount() == 1);
+
+    const SubmitResult overLimitResult =
+        engine.submitOrder({41, Side::Buy, 100, 11});
+    assert(!overLimitResult.accepted);
+    assert(overLimitResult.trades.empty());
+    assert(overLimitResult.reports.size() == 1);
+    assert(overLimitResult.reports[0].event == ExecutionEvent::Rejected);
+
+    const OrderState* rejectedState = engine.getOrderState(41);
+    assert(rejectedState != nullptr);
+    assert(rejectedState->status == OrderStatus::Rejected);
+    assert(engine.restingOrderCount() == 1);
+}
+
 int main() {
     testRestingOrderAndFullMatch();
     testInvalidOrderIsRejected();
@@ -206,5 +227,6 @@ int main() {
     testCancelRestingOrder();
     testCancelPartiallyFilledOrder();
     testCannotCancelTerminalOrUnknownOrder();
+    testRiskQuantityLimitIntegration();
     return 0;
 }

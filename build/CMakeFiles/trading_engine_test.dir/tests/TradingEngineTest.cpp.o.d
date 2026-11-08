@@ -789,4 +789,5 @@ CMakeFiles/trading_engine_test.dir/tests/TradingEngineTest.cpp.o: \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/perfect_forward.h \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/deque \
   /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1/__fwd/deque.h \
-  /Users/te/Documents/Learn-code/HTF/Order_Book/include/ExecutionReport.hpp
+  /Users/te/Documents/Learn-code/HTF/Order_Book/include/ExecutionReport.hpp \
+  /Users/te/Documents/Learn-code/HTF/Order_Book/include/RiskManager.hpp

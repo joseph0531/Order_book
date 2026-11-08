@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/Users/te/Documents/Learn-code/HTF/Order_Book/src/OrderBook.cpp" "CMakeFiles/trading_engine_test.dir/src/OrderBook.cpp.o" "gcc" "CMakeFiles/trading_engine_test.dir/src/OrderBook.cpp.o.d"
   "/Users/te/Documents/Learn-code/HTF/Order_Book/src/OrderManager.cpp" "CMakeFiles/trading_engine_test.dir/src/OrderManager.cpp.o" "gcc" "CMakeFiles/trading_engine_test.dir/src/OrderManager.cpp.o.d"
+  "/Users/te/Documents/Learn-code/HTF/Order_Book/src/RiskManager.cpp" "CMakeFiles/trading_engine_test.dir/src/RiskManager.cpp.o" "gcc" "CMakeFiles/trading_engine_test.dir/src/RiskManager.cpp.o.d"
   "/Users/te/Documents/Learn-code/HTF/Order_Book/src/TradingEngine.cpp" "CMakeFiles/trading_engine_test.dir/src/TradingEngine.cpp.o" "gcc" "CMakeFiles/trading_engine_test.dir/src/TradingEngine.cpp.o.d"
   "/Users/te/Documents/Learn-code/HTF/Order_Book/tests/TradingEngineTest.cpp" "CMakeFiles/trading_engine_test.dir/tests/TradingEngineTest.cpp.o" "gcc" "CMakeFiles/trading_engine_test.dir/tests/TradingEngineTest.cpp.o.d"
   )
